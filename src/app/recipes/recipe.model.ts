@@ -5,7 +5,7 @@ export class Recipe {
     public ingredients: string[];
     public image: string;
 
-   constructor(recipeName: string, course: string, ingredients: [], image: string) {
+   constructor(recipeName: string, course: string, ingredients: string[], image: string) {
      this.recipeName = recipeName;
      this.course = course;
      this.ingredients = ingredients;

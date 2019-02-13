@@ -1,5 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { RecipeService } from './recipes/recipe-service.service';
+import { Recipe } from './recipes/recipe.model';
 
 @Component({
   selector: 'app-root',
@@ -9,7 +10,7 @@ import { RecipeService } from './recipes/recipe-service.service';
 export class AppComponent {
   title = 'recipe-app-frontend-makander';
   searchString: string; 
-  recipes : string[];
+  recipes: Recipe[];
 
   constructor(private RecipeService: RecipeService)
    {}
