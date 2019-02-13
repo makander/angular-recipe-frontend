@@ -2,13 +2,9 @@
     <app-header></app-header>
 
     <h1>DAS MAUD APPF</h1>
-    
-    
-    <form action="">
-      <input type="text" placeholder="search"> 
-      <button>Search</button>
-    </form>
-    
+
+      <input [(ngModel)]="searchString" placeholder="search"> 
+      <button (click)="handleRecipeClick()">Search</button>
     
     <app-recipe-list></app-recipe-list>
 
