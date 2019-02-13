@@ -5,6 +5,11 @@
 
       <input [(ngModel)]="searchString" placeholder="search"> 
       <button (click)="handleRecipeClick()">Search</button>
+
+      <h2>Foods</h2>
+      <ul>
+        <li *ngFor="let recipe of recipes">{{recipe.recipeName}}<img src={{recipe.smallImageUrls}}></li>
+      </ul>
     
     <app-recipe-list></app-recipe-list>
 

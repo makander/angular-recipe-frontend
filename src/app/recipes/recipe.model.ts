@@ -1,9 +1,9 @@
 export class Recipe {
 
-    recipeName: string; 
-    course: string;
-    ingredients: string[];
-    image: string;
+    public recipeName: string; 
+    public course: string;
+    public ingredients: string[];
+    public image: string;
 
    constructor(recipeName: string, course: string, ingredients: [], image: string) {
      this.recipeName = recipeName;

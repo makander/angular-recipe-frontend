@@ -9,16 +9,15 @@ import { RecipeService } from './recipes/recipe-service.service';
 export class AppComponent {
   title = 'recipe-app-frontend-makander';
   searchString: string; 
+  recipes : string[];
 
   constructor(private RecipeService: RecipeService)
    {}
 
   handleRecipeClick = () => {
-    this.RecipeService.getRecipe(this.searchString).
-    subscribe(data => {
-      console.log(data);
-    })
-      
+    this.RecipeService.getRecipe(this.searchString)
+    .subscribe(data => {
+      this.recipes = data.matches;
+    }); 
   }
-
 }
