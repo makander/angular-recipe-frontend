@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Recipe } from './recipe.model';
 import { Observable, of } from 'rxjs';
+import { Recipe } from './recipe.model'; 
 
 @Injectable({
   providedIn: 'root'
@@ -17,6 +17,6 @@ export class RecipeService {
       let yummlyBasePath = 'http://api.yummly.com/v1/api/recipes?'
       let yummlyQueryParams = `_app_id=${yummlyAppId}&_app_key=${yummlyApiKey}&q=${searchString}`;
       let yummlyURL = `${yummlyBasePath}${yummlyQueryParams}`; 
-      return this.http.get<any>(yummlyURL);
+      return this.http.get<Recipe>(yummlyURL);
     }
   }
