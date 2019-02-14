@@ -1,16 +1,5 @@
-<div class="container-fluid">
-    <app-header></app-header>
-
-    <h1>DAS MAUD APPF</h1>
-
-      <input [(ngModel)]="searchString" placeholder="search"> 
-      <button (click)="handleRecipeClick()">Search</button>
-
-      <h2>Foods</h2>
-      <ul>
-        <li *ngFor="let recipe of recipes">{{recipe.recipeName}}<img src={{recipe.smallImageUrls}}></li>
-      </ul>
-    
-    <app-recipe-list></app-recipe-list>
-
+<div class="container-fluid mx-auto">
+  <app-header></app-header>
+  <h1>{{ title }}</h1>
+  <app-recipe-list></app-recipe-list>
 </div>
