@@ -13,12 +13,13 @@ export class RecipeListComponent implements OnInit {
 
   constructor(private RecipeService: RecipeService) {}
 
-  handleRecipeClick = () => {
-    this.RecipeService.getRecipe(this.searchString).subscribe(data => {
+  handleRecipesSearch = () => {
+    this.RecipeService.getRecipes(this.searchString).subscribe(data => {
       this.recipes = data.matches;
       console.log(this.recipes);
     });
   };
 
-  ngOnInit() {}
+  ngOnInit() {
+  }
 }

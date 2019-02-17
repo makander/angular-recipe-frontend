@@ -3,7 +3,7 @@
     <div class="row form-group">
       <div class="column mx-auto m-8">
         <input [(ngModel)]="searchString" placeholder="search" />
-        <button class="btn btn-primary m-5" (click)="handleRecipeClick()">Search</button>
+        <button class="btn btn-primary m-5" (click)="handleRecipesSearch()">Search</button>
       </div>
     </div>
   </div>
@@ -20,7 +20,7 @@
           {{ recipe.ingredients }}
           {{ recipe.course }}
           {{ recipe.id }}
-          <a routerLink="{{recipe.id}}">Detail</a>
+          <a routerLink="{{recipe.id}}"routerLinkActive="active">Detail</a>
           </p>
         </div>
       </div>
