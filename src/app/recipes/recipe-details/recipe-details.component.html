@@ -1,3 +1,4 @@
-<div *ngFor="let i of i">
-  <p>{{i.id}}</p>
+<p>{{ recipeDetails?.name }}</p>
+<div *ngFor="let image of recipeDetails.images">
+  <img src="{{ image.imageUrlsBySize[360] }}" alt="" />
 </div>
