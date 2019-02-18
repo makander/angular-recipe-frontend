@@ -2,3 +2,5 @@
 <div *ngFor="let image of recipeDetails.images">
   <img src="{{ image.imageUrlsBySize[360] }}" alt="" />
 </div>
+
+<a href="{{ recipeDetails.source.sourceRecipeUrl }}">LÄNK</a>
