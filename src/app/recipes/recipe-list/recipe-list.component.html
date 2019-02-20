@@ -1,29 +1,35 @@
-<div class="container-fluid mx-auto">
-  <div class="jumbotron">
-    <div class="row form-group">
-      <div class="column mx-auto m-8">
-        <input [(ngModel)]="searchString" placeholder="search" />
-        <button class="btn btn-primary m-5" (click)="handleRecipesSearch()">Search</button>
-      </div>
-    </div>
+
+<div class="mx-auto text-center">
+    <h1>Food Generator</h1>
+<form [formGroup]="form" (ngSubmit)="handleRecipesSearch()">
+    <input formControlName="searchString" placeholder="search" />
+    <h4>Select Allergies</h4>
+    <div class="checkbox checkbox-info">
+    <label formArrayName="allergies" *ngFor="let allergy of form.controls.allergies.controls; let i = index">
+      <input class="form-check-inline"  type="checkbox" class="styled" [formControlName]="i">
+      {{allergies[i].name}} 
+    </label>
   </div>
+    <button>submit</button>
+  </form>
+</div>
 
   <div *ngFor="let recipe of recipes" class="card w-50 m-4 mx-auto">
-    <div class="row">
-      <div class="col-md-4">
-        <img src="{{ recipe.image }}" class="w-100 m-3" />
-      </div>
-      <div class="col-md-8 px-3">
-        <div class="card-block px-3">
-          <h4 class="card-title m-3">{{ recipe.recipeName }}</h4>
-          <p class="card-text">
-          {{ recipe.ingredients }}
-          {{ recipe.course }}
-          {{ recipe.id }}
-          <a routerLink="{{recipe.id}}"routerLinkActive="active">Detail</a>
-          </p>
+      <div class="row">
+        <div class="col-md-4">
+          <img src="{{ recipe.smallImageUrls }}" class="w-100 m-3" />
+        </div>
+        <div class="col-md-8 px-3">
+          <div class="card-block px-3">
+            <h4 class="card-title m-3">{{ recipe.recipeName }}</h4>
+            <p class="card-text">
+            {{ recipe.ingredients }}
+            {{ recipe.course }}
+            {{ recipe.id }}
+            <a routerLink="{{recipe.id}}"routerLinkActive="active">Detail</a>
+            </p>
+          </div>
         </div>
       </div>
     </div>
-  </div>
-</div>
+  

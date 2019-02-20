@@ -1,7 +1,7 @@
 import { Injectable } from "@angular/core";
 import { HttpClient } from "@angular/common/http";
 import { Observable, of } from "rxjs";
-import { Recipe } from "./RecipeSearch";
+import { Recipe } from "./recipeSearch";
 import { RecipeDetails } from "./recipeDetails";
 
 @Injectable({
@@ -9,6 +9,12 @@ import { RecipeDetails } from "./recipeDetails";
 })
 export class RecipeService {
   constructor(private http: HttpClient) {}
+
+/*     checkAllergies(event) {
+     if (event.target.checked) {
+       console.log('COOKIES');
+     }} */
+
 
   getRecipe(id): Observable<RecipeDetails> {
     let yummlyApiKey = "265eb398f3aef5a718cbcad8c3ecfac2";
@@ -18,15 +24,16 @@ export class RecipeService {
     let yummlyRecipeUrl = `${yummlyBasePath}${yummlyParams}`;
     console.log("this is the recipe detail" + " " + yummlyRecipeUrl);
     return this.http.get<RecipeDetails>(yummlyRecipeUrl);
-    // http://api.yummly.com/v1/api/recipe/French-Onion-Soup-The-Pioneer-Woman-Cooks-_-Ree-Drummond-41364?_app_id=e00f2385&_app_key=265eb398f3aef5a718cbcad8c3ecfac2
   }
 
-  getRecipes(searchString): Observable<Recipe> {
+  getRecipes(searchString: string, allergies?:string, cusinie?: string): Observable<Recipe> {
+
     let yummlyApiKey = "265eb398f3aef5a718cbcad8c3ecfac2";
     let yummlyAppId = "e00f2385";
     let yummlyBasePath = "http://api.yummly.com/v1/api/recipes?";
-    let yummlyQueryParams = `_app_id=${yummlyAppId}&_app_key=${yummlyApiKey}&q=${searchString}`;
-    let yummlyURL = `${yummlyBasePath}${yummlyQueryParams}`;
+    let yummlyQueryParams = `_app_id=${yummlyAppId}&_app_key=${yummlyApiKey}&q=${searchString}${allergies}&maxResult=25&start=10`.replace(/,/g, '');
+    let yummlyURL = `${yummlyBasePath}${yummlyQueryParams}&requirePictures=true`;
+    console.log(yummlyURL);
     return this.http.get<Recipe>(yummlyURL);
   }
 }
