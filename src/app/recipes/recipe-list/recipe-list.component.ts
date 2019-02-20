@@ -19,20 +19,17 @@ export class RecipeListComponent implements OnInit {
   searchString;
 
   recipes = [];
-  allergies = [
-    { id: "&allowedAllergy[]=394^Peanut-Free", name: "Peanut" },
-    { id: "&allowedAllergy[]=396^Dairy-Free", name: "Dairy" },
-    { id: "&allowedAllergy[]=400^Soy-Free", name: "Soy" },
-    { id: "&allowedAllergy[]=395^Tree+Nut-Free", name: "Tree Nut" },
-    { id: "&allowedAllergy[]=397^Egg-Free", name: "Egg" },
-    { id: "&allowedAllergy[]=398^Seafood-Free", name: "Seafood" },
-    { id: "&allowedAllergy[]=401^Sulfite-Free", name: "Sulfite" },
-    { id: "&allowedAllergy[]=392^Wheat-Free", name: "Wheat" },
-    { id: "&allowedAllergy[]=393^Gluten-Free", name: "Gluten" },
-    { id: "&allowedAllergy[]=399^Sesame-Free", name: "Sesame" }
-  ];
-
-  courses = [
+  options = [
+    { id: "&allowedAllergy[]=394^Peanut-Free", name: "Peanut Allergy" },
+    { id: "&allowedAllergy[]=396^Dairy-Free", name: "Dairy Allergy" },
+    { id: "&allowedAllergy[]=400^Soy-Free", name: "Soy Allergy" },
+    { id: "&allowedAllergy[]=395^Tree+Nut-Free", name: "Tree Nut Allergy" },
+    { id: "&allowedAllergy[]=397^Egg-Free", name: "Egg Allergy" },
+    { id: "&allowedAllergy[]=398^Seafood-Free", name: "Seafood Allergy" },
+    { id: "&allowedAllergy[]=401^Sulfite-Free", name: "Sulfite Allergy" },
+    { id: "&allowedAllergy[]=392^Wheat-Free", name: "Wheat Allergy" },
+    { id: "&allowedAllergy[]=393^Gluten-Free", name: "Gluten Allergy" },
+    { id: "&allowedAllergy[]=399^Sesame-Free", name: "Sesame Allergy" },
     { id: "&allowedCourse[]=course^course-Appetizers", name: "Appetizers" },
     { id: "&allowedCourse[]=course^course-Desserts", name: "Desserts" },
     { id: "&allowedCourse[]=course^course-Breads", name: "Breads" },
@@ -56,24 +53,24 @@ export class RecipeListComponent implements OnInit {
     private FavoritesService: FavoritesService,
     private formBuilder: FormBuilder
   ) {
-    const controls = this.allergies.map(c => new FormControl(false));
+    const controls = this.options.map(c => new FormControl(false));
     this.form = this.formBuilder.group({
-      allergies: new FormArray(controls),
+      options: new FormArray(controls),
       searchString: this.searchString
     });
   }
 
   handleRecipesSearch = () => {
-    let allergies = this.form.value.allergies
-      .map((v, i) => (v ? this.allergies[i].id : null))
+    let options = this.form.value.options
+      .map((v, i) => (v ? this.options[i].id : null))
       .filter(v => v !== null);
     let searchString = this.form.value.searchString;
     console.log(searchString);
 
-    this.RecipeService.getRecipes(searchString, allergies).subscribe(data => {
+    this.RecipeService.getRecipes(searchString, options).subscribe(data => {
       this.recipes = data.matches;
       console.log(this.recipes);
-      console.log(allergies);
+      console.log(options);
       console.log(searchString);
       console.log(this.RecipeService.getRecipe);
     });

@@ -10,12 +10,6 @@ import { RecipeDetails } from "./recipeDetails";
 export class RecipeService {
   constructor(private http: HttpClient) {}
 
-/*     checkAllergies(event) {
-     if (event.target.checked) {
-       console.log('COOKIES');
-     }} */
-
-
   getRecipe(id): Observable<RecipeDetails> {
     let yummlyApiKey = "265eb398f3aef5a718cbcad8c3ecfac2";
     let yummlyAppId = "e00f2385";
@@ -26,12 +20,12 @@ export class RecipeService {
     return this.http.get<RecipeDetails>(yummlyRecipeUrl);
   }
 
-  getRecipes(searchString: string, allergies?:string, cusinie?: string): Observable<Recipe> {
+  getRecipes(searchString: string, options?:string): Observable<Recipe> {
 
     let yummlyApiKey = "265eb398f3aef5a718cbcad8c3ecfac2";
     let yummlyAppId = "e00f2385";
     let yummlyBasePath = "http://api.yummly.com/v1/api/recipes?";
-    let yummlyQueryParams = `_app_id=${yummlyAppId}&_app_key=${yummlyApiKey}&q=${searchString}${allergies}&maxResult=25&start=10`.replace(/,/g, '');
+    let yummlyQueryParams = `_app_id=${yummlyAppId}&_app_key=${yummlyApiKey}&q=${searchString}${options}&maxResult=25&start=10`.replace(/,/g, '');
     let yummlyURL = `${yummlyBasePath}${yummlyQueryParams}&requirePictures=true`;
     console.log(yummlyURL);
     return this.http.get<Recipe>(yummlyURL);

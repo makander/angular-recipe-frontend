@@ -1,0 +1,11 @@
+ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    background-color: peachpuff;
+}
+ul li {
+    display: inline-block;
+    margin-right: -4px;
+    width: 25%; 
+}

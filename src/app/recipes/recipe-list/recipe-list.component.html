@@ -2,20 +2,12 @@
   <h1>Food Generator</h1>
   <form [formGroup]="form" (ngSubmit)="handleRecipesSearch()">
     <input formControlName="searchString" placeholder="search" />
-    <h4>Select Allergies</h4>
+    <h4>Select Allergies or type of course</h4>
     <div class="checkbox checkbox-info">
-      <label
-        formArrayName="allergies"
-        *ngFor="let allergy of form.controls.allergies.controls; let i = index"
-      >
-        <input
-          class="form-check-inline"
-          type="checkbox"
-          class="styled"
-          [formControlName]="i"
-        />
-        {{ allergies[i].name }}
-      </label>
+      <ul formArrayName="options" *ngFor="let option of form.controls.options.controls; let i = index">
+          <li> <input type="checkbox" [formControlName]="i" />
+      {{ options[i].name }}  </li>
+    </ul>
     </div>
     <button>submit</button>
   </form>
