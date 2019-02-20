@@ -19,9 +19,9 @@ export class RecipeListComponent implements OnInit {
     { id: '&allowedAllergy[]=400^Soy-Free', name: 'Soy' },
     { id: '&allowedAllergy[]=395^Tree+Nut-Free', name: 'Tree Nut' },
     { id: '&allowedAllergy[]=397^Egg-Free', name: 'Egg' },
-    { id: '&allowedAllergy[]=^Seafood-Free', name: 'Seafood' },
+    { id: '&allowedAllergy[]=398^Seafood-Free', name: 'Seafood' },
     { id: '&allowedAllergy[]=401^Sulfite-Free', name: 'Sulfite' },
-    { id: '&allowedAllergy[]=92^Wheat-Free', name: 'Wheat' },
+    { id: '&allowedAllergy[]=392^Wheat-Free', name: 'Wheat' },
     { id: '&allowedAllergy[]=393^Gluten-Free', name: 'Gluten' },
     { id: '&allowedAllergy[]=399^Sesame-Free', name: 'Sesame' },
   ];
