@@ -1,6 +1,16 @@
-<p>{{ recipeDetails?.name }}</p>
-<div *ngFor="let image of recipeDetails.images">
-  <img src="{{ image.imageUrlsBySize[360] }}" alt="" />
-</div>
+<div>
+  <p>{{ recipeDetails.name }}</p>
+  <div *ngFor="let image of recipeDetails.images">
+    <img src="{{ image.imageUrlsBySize[360] }}" alt="" />
 
-<a href="{{ recipeDetails.source.sourceRecipeUrl }}">LÄNK</a>
+    <button (click)="saveToFavorites(recipeDetails.id)">
+      Save recipe
+    </button>
+
+    <button (click)="goBack()">Back</button>
+
+    <a href="{{ recipeDetails.source.sourceRecipeUrl }}"
+      >Cooking instructions</a
+    >
+  </div>
+</div>

@@ -1,13 +1,13 @@
-import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http';
-
-import { AppComponent } from './app.component';
-import { RecipeListComponent } from './recipes/recipe-list/recipe-list.component';
-import { RecipeDetailsComponent } from './recipes/recipe-details/recipe-details.component';
-import { HeaderComponent } from './header/header.component';
-import { AppRoutingModule } from './app-routing.module';
+import { BrowserModule } from "@angular/platform-browser";
+import { NgModule } from "@angular/core";
+import { FormsModule, ReactiveFormsModule } from "@angular/forms";
+import { HttpClientModule } from "@angular/common/http";
+import { AppComponent } from "./app.component";
+import { RecipeListComponent } from "./recipes/recipe-list/recipe-list.component";
+import { RecipeDetailsComponent } from "./recipes/recipe-details/recipe-details.component";
+import { HeaderComponent } from "./header/header.component";
+import { AppRoutingModule } from "./app-routing.module";
+import { FavoritesComponent } from "./recipes/favorites/favorites.component";
 
 @NgModule({
   declarations: [
@@ -15,6 +15,7 @@ import { AppRoutingModule } from './app-routing.module';
     RecipeListComponent,
     RecipeDetailsComponent,
     HeaderComponent,
+    FavoritesComponent
   ],
   imports: [
     BrowserModule,
@@ -22,9 +23,8 @@ import { AppRoutingModule } from './app-routing.module';
     HttpClientModule,
     AppRoutingModule,
     ReactiveFormsModule
-    
   ],
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {}

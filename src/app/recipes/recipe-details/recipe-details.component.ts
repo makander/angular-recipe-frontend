@@ -4,6 +4,7 @@ import { ActivatedRoute } from "@angular/router";
 import { Location } from "@angular/common";
 //import { Recipe } from "../recipe.model";
 import { RecipeDetails } from "../recipeDetails";
+import { FavoritesService } from "../favorites.service";
 
 @Component({
   selector: "app-recipe-details",
@@ -16,7 +17,8 @@ export class RecipeDetailsComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
     private RecipeService: RecipeService,
-    private location: Location
+    private location: Location,
+    private FavoriteService: FavoritesService
   ) {}
 
   ngOnInit() {
@@ -29,6 +31,11 @@ export class RecipeDetailsComponent implements OnInit {
       console.log(this.recipeDetails);
       console.log(this.recipeDetails.source[0]);
     });
+  }
+
+  saveToFavorites() {
+    const id = this.route.snapshot.paramMap.get("id");
+    this.FavoriteService.saveRecipes(id);
   }
 
   goBack(): void {
