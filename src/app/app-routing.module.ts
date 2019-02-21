@@ -8,9 +8,8 @@ import { SignupComponent } from "./signup/signup.component";
 import { ProfileComponent } from "./profile/profile.component";
 
 const routes: Routes = [
-  { path: "", redirectTo: "/recipes", pathMatch: "full" },
-  { path: "recipes", component: RecipeListComponent },
-  { path: "recipes/:id", component: RecipeDetailsComponent },
+  { path: "", component: RecipeListComponent },
+  { path: "recipe/:id", component: RecipeDetailsComponent },
   { path: "favorites", component: FavoritesComponent },
   { path: "login", component: LoginComponent },
   { path: "signup", component: SignupComponent },
