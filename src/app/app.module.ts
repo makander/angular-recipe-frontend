@@ -8,11 +8,9 @@ import { RecipeDetailsComponent } from "./recipes/recipe-details/recipe-details.
 import { HeaderComponent } from "./header/header.component";
 import { AppRoutingModule } from "./app-routing.module";
 import { FavoritesComponent } from "./recipes/favorites/favorites.component";
-import { LoginComponent } from './login/login.component';
-import { SignupComponent } from './signup/signup.component';
-import { ProfileComponent } from './profile/profile.component';
-import { RequestResetComponent } from './password/request-reset/request-reset.component';
-import { ReponseResetComponent } from './password/reponse-reset/reponse-reset.component';
+import { LoginComponent } from "./login/login.component";
+import { ProfileComponent } from "./profile/profile.component";
+import { RegisterComponent } from "./register/register.component";
 
 @NgModule({
   declarations: [
@@ -22,10 +20,8 @@ import { ReponseResetComponent } from './password/reponse-reset/reponse-reset.co
     HeaderComponent,
     FavoritesComponent,
     LoginComponent,
-    SignupComponent,
     ProfileComponent,
-    RequestResetComponent,
-    ReponseResetComponent
+    RegisterComponent
   ],
   imports: [
     BrowserModule,

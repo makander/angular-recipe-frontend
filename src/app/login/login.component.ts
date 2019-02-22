@@ -19,7 +19,7 @@ export class LoginComponent implements OnInit {
   //console.log(this.form);
   onSubmit() {
     return this.http
-      .post("http://recipe.test/api/auth/login", this.form)
+      .post("http://localhost:8000/api/auth/login", this.form)
       .subscribe(data => console.log(data), error => console.log(error));
   }
 }
