@@ -2,7 +2,11 @@
   <a class="navbar-brand" href="#">Navbar</a>
   <div>
     <a class="navbar-brand" routerLink="login" *ngIf="!userLoggedIn">Login</a>
-    <a class="navbar-brand" href="#" (click)="logout()" *ngIf="userLoggedIn"
+    <a
+      class="navbar-brand"
+      routerLink="logout"
+      (click)="logout()"
+      *ngIf="userLoggedIn"
       >Logout</a
     >
 
