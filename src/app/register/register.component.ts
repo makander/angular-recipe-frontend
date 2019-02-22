@@ -1,5 +1,7 @@
-import { Component, OnInit } from "@angular/core";
+import { Component, OnInit, ErrorHandler } from "@angular/core";
 import { UserServiceService } from "../user-service.service";
+import { TokenServiceService } from "../token-service.service";
+import { Router } from "@angular/router";
 
 @Component({
   selector: "app-register",
@@ -14,14 +16,23 @@ export class RegisterComponent implements OnInit {
     password_confirmation: null
   };
 
-  constructor(private UserServiceService: UserServiceService) {}
+  constructor(
+    private UserServiceService: UserServiceService,
+    private Token: TokenServiceService,
+    private router: Router
+  ) {}
 
   ngOnInit() {}
 
   onSubmit() {
     this.UserServiceService.registerUser(this.form).subscribe(
-      data => console.log(data),
+      data => this.handleResponse(data),
       error => console.log(error)
     );
+  }
+
+  handleResponse(data) {
+    this.Token.handleToken(data.access_token);
+    this.router.navigateByUrl("/profile");
   }
 }
