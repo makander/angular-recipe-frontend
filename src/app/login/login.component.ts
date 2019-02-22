@@ -1,5 +1,7 @@
 import { Component, OnInit } from "@angular/core";
 import { UserServiceService } from "../user-service.service";
+import { TokenServiceService } from "../token-service.service";
+import { Token } from "@angular/compiler";
 
 @Component({
   selector: "app-login",
@@ -12,15 +14,22 @@ export class LoginComponent implements OnInit {
     password: null
   };
 
-  constructor(private UserServiceService: UserServiceService) {}
+  constructor(
+    private UserService: UserServiceService,
+    private Token: TokenServiceService
+  ) {}
 
   ngOnInit() {}
 
   //console.log(this.form);
   onSubmit() {
-    this.UserServiceService.loginUser(this.form).subscribe(
-      data => console.log(data),
+    this.UserService.loginUser(this.form).subscribe(
+      data => this.handleResponse(data),
       error => console.log(error)
     );
+  }
+
+  handleResponse(data) {
+    this.Token.handleToken(data.access_token);
   }
 }
