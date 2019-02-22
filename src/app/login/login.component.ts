@@ -3,6 +3,7 @@ import { UserServiceService } from "../user-service.service";
 import { TokenServiceService } from "../token-service.service";
 import { Token } from "@angular/compiler";
 import { Router } from "@angular/router";
+import { AuthServiceService } from "../auth-service.service";
 
 @Component({
   selector: "app-login",
@@ -18,7 +19,8 @@ export class LoginComponent implements OnInit {
   constructor(
     private UserService: UserServiceService,
     private Token: TokenServiceService,
-    private router: Router
+    private router: Router,
+    private Auth: AuthServiceService
   ) {}
 
   ngOnInit() {}
@@ -33,6 +35,7 @@ export class LoginComponent implements OnInit {
 
   handleResponse(data) {
     this.Token.handleToken(data.access_token);
+    this.Auth.changeAuthStaus(true);
     this.router.navigateByUrl("/profile");
   }
 }

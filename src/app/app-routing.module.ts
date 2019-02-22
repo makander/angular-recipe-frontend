@@ -13,7 +13,8 @@ const routes: Routes = [
   { path: "favorites", component: FavoritesComponent },
   { path: "login", component: LoginComponent },
   { path: "register", component: RegisterComponent },
-  { path: "profile", component: ProfileComponent }
+  { path: "profile", component: ProfileComponent },
+  { path: "logout", redirectTo: "", component: RecipeListComponent }
   //{ path: '', component: RecipeListComponent }
 ];
 
