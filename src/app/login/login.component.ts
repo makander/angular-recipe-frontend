@@ -1,5 +1,5 @@
 import { Component, OnInit } from "@angular/core";
-import { HttpClient } from "@angular/common/http";
+import { UserServiceService } from "../user-service.service";
 
 @Component({
   selector: "app-login",
@@ -12,14 +12,15 @@ export class LoginComponent implements OnInit {
     password: null
   };
 
-  constructor(private http: HttpClient) {}
+  constructor(private UserServiceService: UserServiceService) {}
 
   ngOnInit() {}
 
   //console.log(this.form);
   onSubmit() {
-    return this.http
-      .post("http://localhost:8000/api/auth/login", this.form)
-      .subscribe(data => console.log(data), error => console.log(error));
+    this.UserServiceService.loginUser(this.form).subscribe(
+      data => console.log(data),
+      error => console.log(error)
+    );
   }
 }
