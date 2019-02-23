@@ -33,6 +33,6 @@ export class RegisterComponent implements OnInit {
 
   handleResponse(data) {
     this.Token.handleToken(data.access_token);
-    this.router.navigateByUrl("/profile");
+    this.router.navigateByUrl("/favorites");
   }
 }

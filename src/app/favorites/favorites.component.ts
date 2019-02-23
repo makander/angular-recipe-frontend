@@ -9,5 +9,9 @@ import { FavoritesService } from "../favorites.service";
 export class FavoritesComponent implements OnInit {
   constructor() {}
 
+  getFavoriteRecipe() {}
+
+  removeFavorites() {}
+
   ngOnInit() {}
 }

@@ -76,8 +76,8 @@ export class RecipeListComponent implements OnInit {
     });
   };
 
-  saveToFavorites(id) {
-    this.FavoritesService.saveRecipes(id);
+  saveToFavorites(recipeId, recipeName, imageUrl) {
+    this.FavoritesService.saveRecipes(recipeId, recipeName, imageUrl);
   }
 
   ngOnInit() {}

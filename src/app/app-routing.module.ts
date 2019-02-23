@@ -12,7 +12,6 @@ const routes: Routes = [
   { path: "favorites", component: FavoritesComponent },
   { path: "login", component: LoginComponent },
   { path: "register", component: RegisterComponent },
-  { path: "favorites", component: FavoritesComponent },
   { path: "logout", redirectTo: "", component: RecipeListComponent }
   //{ path: '', component: RecipeListComponent }
 ];

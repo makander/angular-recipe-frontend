@@ -33,10 +33,10 @@ export class RecipeDetailsComponent implements OnInit {
     });
   }
 
-  saveToFavorites() {
-    const id = this.route.snapshot.paramMap.get("id");
-    this.FavoriteService.saveRecipes(id);
-  }
+  // saveToFavorites() {
+  //   const id = this.route.snapshot.paramMap.get("id");
+  //   this.FavoriteService.saveRecipes(id);
+  // }
 
   goBack(): void {
     this.location.back();

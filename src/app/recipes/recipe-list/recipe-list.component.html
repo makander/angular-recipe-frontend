@@ -31,7 +31,15 @@
           {{ recipe.course }}
           {{ recipe.id }}
 
-          <button (click)="saveToFavorites(recipe.id)">
+          <button
+            (click)="
+              saveToFavorites(
+                recipe.id,
+                recipe.sourceDisplayName,
+                recipe.smallImageUrls
+              )
+            "
+          >
             Save recipe
           </button>
 
