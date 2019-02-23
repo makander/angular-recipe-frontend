@@ -10,6 +10,8 @@
       >Logout</a
     >
 
-    <a class="navbar-brand" routerLink="profile">Profile</a>
+    <a class="navbar-brand" *ngIf="userLoggedIn" routerLink="favorites"
+      >Favorites</a
+    >
   </div>
 </nav>

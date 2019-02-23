@@ -7,9 +7,8 @@ import { RecipeListComponent } from "./recipes/recipe-list/recipe-list.component
 import { RecipeDetailsComponent } from "./recipes/recipe-details/recipe-details.component";
 import { HeaderComponent } from "./header/header.component";
 import { AppRoutingModule } from "./app-routing.module";
-import { FavoritesComponent } from "./recipes/favorites/favorites.component";
+import { FavoritesComponent } from "./favorites/favorites.component";
 import { LoginComponent } from "./login/login.component";
-import { ProfileComponent } from "./profile/profile.component";
 import { RegisterComponent } from "./register/register.component";
 
 @NgModule({
@@ -20,7 +19,6 @@ import { RegisterComponent } from "./register/register.component";
     HeaderComponent,
     FavoritesComponent,
     LoginComponent,
-    ProfileComponent,
     RegisterComponent
   ],
   imports: [

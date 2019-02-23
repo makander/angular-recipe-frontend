@@ -25,6 +25,6 @@ export class HeaderComponent implements OnInit {
     console.log("LOGGA UT MIG DÅ!!");
     this.Auth.changeAuthStaus(false);
     this.Token.removeToken();
-    this.router.navigateByUrl("/");
+    this.router.navigateByUrl("");
   }
 }

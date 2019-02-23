@@ -7,7 +7,7 @@ import {
   FormControl,
   ValidatorFn
 } from "@angular/forms";
-import { FavoritesService } from "../favorites.service";
+import { FavoritesService } from "../../favorites.service";
 
 @Component({
   selector: "app-recipe-list",
