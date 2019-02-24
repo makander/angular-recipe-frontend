@@ -7,7 +7,7 @@ import { HttpClient, HttpHeaders } from "@angular/common/http";
 export class FavoritesService {
   constructor(private http: HttpClient) {}
 
-  private baseUrl = "http://localhost:8000/api/auth/recipes/store";
+  private baseUrl = "http://localhost:8000/api/auth/recipes/";
   //favoriteRecipes = [];
   httpOptions = {
     headers: new HttpHeaders({
@@ -19,30 +19,17 @@ export class FavoritesService {
 
   saveRecipes(recipeId, recipeName, imageUrl) {
     const body1 = {
-      recipe_id: recipeId,
-      yummly_recipe_id: recipeName,
+      yummly_recipe_id: recipeId,
+      recipe_name: recipeName,
       image_url: imageUrl
     };
-    return body1;
+    this.addRecipe(body1).subscribe();
   }
 
-  sendRequest() {
-    return this.http
-      .post(this.baseUrl, this.saveRecipes, this.httpOptions)
-      .subscribe();
+  addRecipe(data) {
+    console.log(data);
+    console.log(typeof data);
+
+    return this.http.post(`${this.baseUrl}`, data, this.httpOptions);
   }
 }
-
-//  const addRequest = this.http.post(this.baseUrl, this.saveRecipes, this.httpOptions);
-//  addRequest.subscribe();
-
-//   //this.favoriteRecipes.push(recipeId);
-//   console.log(recipeId, recipeName);
-//   return this.http
-//     .post(this.baseUrl, {
-//       yummly_recipe_id: recipeId,
-//       recipe_name: recipeName,
-//       image_url: imageUrl,
-//       this.httpOptions
-//     })
-//     .subscribe
