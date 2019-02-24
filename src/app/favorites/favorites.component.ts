@@ -7,11 +7,12 @@ import { FavoritesService } from "../favorites.service";
   styleUrls: ["./favorites.component.css"]
 })
 export class FavoritesComponent implements OnInit {
-  constructor() {}
+  constructor(private FavoritesService: FavoritesService) {}
 
-  getFavoriteRecipe() {}
-
-  removeFavorites() {}
+  getFavoriteRecipes() {
+    // this.FavoritesService.getFavoriteRecipes();
+    console.log("lololol");
+  }
 
   ngOnInit() {}
 }

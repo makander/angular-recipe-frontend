@@ -1,7 +1,7 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <a class="navbar-brand" href="#">Navbar</a>
   <div>
     <a class="navbar-brand" routerLink="login" *ngIf="!userLoggedIn">Login</a>
+
     <a
       class="navbar-brand"
       routerLink="logout"
@@ -10,8 +10,6 @@
       >Logout</a
     >
 
-    <a class="navbar-brand" *ngIf="userLoggedIn" routerLink="favorites"
-      >Favorites</a
-    >
+    <a class="navbar-brand" routerLink="favorites" *ngIf="userLoggedIn">Favs</a>
   </div>
 </nav>

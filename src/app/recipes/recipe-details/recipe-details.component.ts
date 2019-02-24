@@ -2,7 +2,6 @@ import { Component, OnInit } from "@angular/core";
 import { RecipeService } from "../recipe-service.service";
 import { ActivatedRoute } from "@angular/router";
 import { Location } from "@angular/common";
-//import { Recipe } from "../recipe.model";
 import { RecipeDetails } from "../recipeDetails";
 import { FavoritesService } from "../../favorites.service";
 

@@ -1,7 +1,6 @@
 import { Component, OnInit } from "@angular/core";
 import { UserServiceService } from "../user-service.service";
 import { TokenServiceService } from "../token-service.service";
-import { Token } from "@angular/compiler";
 import { Router } from "@angular/router";
 import { AuthServiceService } from "../auth-service.service";
 
@@ -25,7 +24,6 @@ export class LoginComponent implements OnInit {
 
   ngOnInit() {}
 
-  //console.log(this.form);
   onSubmit() {
     this.UserService.loginUser(this.form).subscribe(
       data => this.handleResponse(data),
@@ -36,6 +34,6 @@ export class LoginComponent implements OnInit {
   handleResponse(data) {
     this.Token.handleToken(data.access_token);
     this.Auth.changeAuthStaus(true);
-    this.router.navigateByUrl("/favorites");
+    this.router.navigateByUrl("");
   }
 }
