@@ -18,7 +18,7 @@ export class RecipeDetailsComponent implements OnInit {
     private route: ActivatedRoute,
     private RecipeService: RecipeService,
     private location: Location,
-    private FavoriteService: FavoritesService
+    private FavoritesService: FavoritesService
   ) {}
 
   ngOnInit() {
@@ -33,10 +33,9 @@ export class RecipeDetailsComponent implements OnInit {
     });
   }
 
-  // saveToFavorites() {
-  //   const id = this.route.snapshot.paramMap.get("id");
-  //   this.FavoriteService.saveRecipes(id);
-  // }
+  saveToFavorites(recipeId, recipeName, imageUrl) {
+    this.FavoritesService.saveRecipes(recipeId, recipeName, imageUrl);
+  }
 
   goBack(): void {
     this.location.back();

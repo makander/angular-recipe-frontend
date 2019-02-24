@@ -8,7 +8,6 @@ export class FavoritesService {
   constructor(private http: HttpClient) {}
 
   private baseUrl = "http://localhost:8000/api/auth/recipes/";
-  //favoriteRecipes = [];
   httpOptions = {
     headers: new HttpHeaders({
       "Content-Type": "application/json",

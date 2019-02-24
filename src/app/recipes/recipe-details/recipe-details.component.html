@@ -3,7 +3,15 @@
   <div *ngFor="let image of recipeDetails.images">
     <img src="{{ image.imageUrlsBySize[360] }}" alt="" />
 
-    <button (click)="saveToFavorites(recipeDetails.id)">
+    <button
+      (click)="
+        saveToFavorites(
+          recipeDetails.id,
+          recipeDetails.name,
+          image.imageUrlsBySize[90]
+        )
+      "
+    >
       Save recipe
     </button>
 
