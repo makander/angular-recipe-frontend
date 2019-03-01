@@ -35,8 +35,6 @@ export class RecipeListComponent implements OnInit {
     { id: "&allowedCourse[]=course^course-Breads", name: "Breads" },
     { id: "&allowedCourse[]=course^course-Appetizers", name: "Breakfast" },
     { id: "&allowedCourse[]=course^course-Soups", name: "Soups" },
-    { id: "&allowedCourse[]=course^course-Beverages", name: "Beverages" },
-    { id: "&allowedCourse[]=course^course-Cocktails", name: "Cocktails" },
     {
       id: "&allowedCourse[]=course^course-",
       name: "Condiments and Sauces"

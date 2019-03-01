@@ -1,24 +1,33 @@
-<div>
-  <p>{{ recipeDetails.name }}</p>
+<div class="jumbotron text-center bg-light">
+  <h1 class="display-6 mb-4">{{ recipeDetails.name }}</h1>
   <div *ngFor="let image of recipeDetails.images">
     <img src="{{ image.imageUrlsBySize[360] }}" alt="" />
-
-    <button
-      (click)="
-        saveToFavorites(
-          recipeDetails.id,
-          recipeDetails.name,
-          image.imageUrlsBySize[90]
-        )
-      "
-    >
-      Save recipe
-    </button>
-
-    <button (click)="goBack()">Back</button>
-
-    <a href="{{ recipeDetails.source.sourceRecipeUrl }}"
-      >Cooking instructions</a
-    >
+    <hr class="my-4" />
+    <p *ngFor="let ingredients of recipeDetails.ingredientLines">
+      {{ ingredients }}
+    </p>
+    <p class="lead">
+      <a
+        class="btn btn-primary btn-lg mr-2"
+        href="{{ recipeDetails.source.sourceRecipeUrl }}"
+        role="button"
+        >Instructions</a
+      >
+      <button
+        class="btn btn-secondary btn-lg mr-2"
+        (click)="
+          saveToFavorites(
+            recipeDetails.id,
+            recipeDetails.name,
+            image.imageUrlsBySize[90]
+          )
+        "
+      >
+        Save recipe
+      </button>
+      <button class="btn btn-primary btn-info btn-lg" (click)="goBack()">
+        Back
+      </button>
+    </p>
   </div>
 </div>

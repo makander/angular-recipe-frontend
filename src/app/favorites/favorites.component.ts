@@ -10,7 +10,9 @@ export class FavoritesComponent implements OnInit {
   constructor(private FavoritesService: FavoritesService) {}
 
   getFavoriteRecipes() {
-    // this.FavoritesService.getFavoriteRecipes();
+    this.FavoritesService.getFavoriteRecipes().subscribe(data => {
+      console.log(data);
+    });
     console.log("lololol");
   }
 

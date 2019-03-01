@@ -1,6 +1,7 @@
 import { Injectable } from "@angular/core";
 import { HttpClient, HttpHeaders } from "@angular/common/http";
-import { Observable, of } from "rxjs";
+import { Observable } from "rxjs";
+import { map } from "rxjs/operators";
 
 @Injectable({
   providedIn: "root"
@@ -8,7 +9,7 @@ import { Observable, of } from "rxjs";
 export class FavoritesService {
   constructor(private http: HttpClient) {}
 
-  private baseUrl = "http://localhost:8000/api/auth/recipes/";
+  private baseUrl = "http://localhost:8000/api/auth";
   httpOptions = {
     headers: new HttpHeaders({
       "Content-Type": "application/json",
@@ -30,12 +31,26 @@ export class FavoritesService {
     console.log(data);
     console.log(typeof data);
 
-    return this.http.post(`${this.baseUrl}`, data, this.httpOptions);
+    return this.http.post(`${this.baseUrl}/recipes/`, data, this.httpOptions);
   }
 
   getFavoriteRecipes(): Observable<any> {
-    return this.http.get<any>(`${this.baseUrl}`, this.httpOptions);
+    return this.http.get(`${this.baseUrl}/recipes/`);
   }
+  // // Fetch all existing comments
+  // getComments(): Observable<Comment[]> {
+  //   // ...using get request
+  //   return (
+  //     this.http
+  //       .get(this.commentsUrl)
+  //       // ...and calling .json() on the response to return data
+  //       .map((res: Response) => res.json())
+  //       //...errors if any
+  //       .catch((error: any) =>
+  //         Observable.throw(error.json().error || "Server error")
+  //       )
+  //   );
+  // }
 
   // getRecipes(searchString: string, options?:string): Observable<Recipe> {
 
