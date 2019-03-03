@@ -35,13 +35,9 @@ export class RecipeListComponent implements OnInit {
     { id: "&allowedCourse[]=course^course-Breads", name: "Breads" },
     { id: "&allowedCourse[]=course^course-Appetizers", name: "Breakfast" },
     { id: "&allowedCourse[]=course^course-Soups", name: "Soups" },
-    {
-      id: "&allowedCourse[]=course^course-",
-      name: "Condiments and Sauces"
-    },
-    { id: "&allowedCourse[]=course^course-", name: "Side Dishes" },
-    { id: "&allowedCourse[]=course^course-", name: "Lunch" },
-    { id: "&allowedCourse[]=course^course-", name: "Mains" }
+    { id: "&allowedCourse[]=course^course-Side-Dishes", name: "Side Dishes" },
+    { id: "&allowedCourse[]=course^course-Lunch", name: "Lunch" },
+    { id: "&allowedCourse[]=course^course-Mains", name: "Mains" }
   ];
 
   // Main Dishes, Desserts, Side Dishes, Lunch and Snacks, Appetizers, Salads, Breads, Breakfast and Brunch, Soups, Beverages, Condiments and Sauces, Cocktails

@@ -1,14 +1,15 @@
 <div class="mx-auto">
-  <h1 class="text-center display-1">Universal Recipe Locator</h1>
+  <h1 class="text-center display-1" id="desktop-header">Universal Recipe Locator</h1>
+  <h4 class="text-center" id="mobile-header">Universal Recipe Locator</h4>
   <div class="container">
     <form [formGroup]="form" (ngSubmit)="handleRecipesSearch()">
       <input id="search" formControlName="searchString" placeholder="search" />
 
-      <button class="btn btn-primary">Submit</button>
+      <button class="btn btn-primary btn-lg">Submit</button>
 
-      <h4 class="text-center ">Select Allergies or type of course</h4>
+      <h5 class="text-center ">Select Allergies or type of course</h5>
 
-      <div class="row p-4">
+      <div class="row p-4 desktop">
         <ul class="form-group form-check" formArrayName="options">
           <li
             *ngFor="let option of form.controls.options.controls; let i = index"
@@ -18,11 +19,24 @@
           </li>
         </ul>
       </div>
+
+      
+      <div class="mobile">
+          <ul class="form-group form-check" formArrayName="options">
+            <li
+              *ngFor="let option of form.controls.options.controls; let i = index"
+            >
+              <input class="checkbox" type="checkbox" [formControlName]="i" />
+              {{ options[i].name }}
+            </li>
+          </ul>
+        </div>
+
     </form>
   </div>
 
   <div class="card-columns">
-    <div class="card p-12" *ngFor="let recipe of recipes">
+    <div class="card p-8" *ngFor="let recipe of recipes">
       <img
         class="card-img-top p-2 mb-4"
         src="{{ recipe.smallImageUrls }}"

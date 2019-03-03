@@ -4,6 +4,7 @@ import { TokenServiceService } from "../token-service.service";
 import { Router } from "@angular/router";
 import { AuthServiceService } from "../auth-service.service";
 
+
 @Component({
   selector: "app-login",
   templateUrl: "./login.component.html",
@@ -19,7 +20,8 @@ export class LoginComponent implements OnInit {
     private UserService: UserServiceService,
     private Token: TokenServiceService,
     private router: Router,
-    private Auth: AuthServiceService
+    private Auth: AuthServiceService,
+
   ) {}
 
   ngOnInit() {}
