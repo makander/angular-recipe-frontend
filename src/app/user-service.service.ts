@@ -6,7 +6,7 @@ import { Observable, of } from "rxjs";
   providedIn: "root"
 })
 export class UserServiceService {
-  private backendUrl = "http://localhost:8000/api/auth";
+  private backendUrl = "http://recipe.test/api/auth";
   constructor(private http: HttpClient) {}
 
   registerUser(data) {

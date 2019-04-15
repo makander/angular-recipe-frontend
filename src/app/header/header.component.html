@@ -1,15 +1,17 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
+<nav class="navbar navbar-expand-lg navbar-light bg-info">
   <div>
-    <a class="navbar-brand" routerLink="login" *ngIf="!userLoggedIn">Login</a>
+    <a class="navbar-brand text-white" routerLink="login" *ngIf="!userLoggedIn">Login</a>
 
     <a
-      class="navbar-brand"
+      class="navbar-brand text-white"
       routerLink="logout"
       (click)="logout()"
       *ngIf="userLoggedIn"
       >Logout</a
     >
 
-    <a class="navbar-brand" routerLink="favorites" *ngIf="userLoggedIn">Favs</a>
+    <a class="navbar-brand text-white" routerLink="favorites" *ngIf="userLoggedIn">Favs</a>
+    <a class="navbar-brand text-white" routerLink="/">Recipes</a>
+
   </div>
 </nav>
