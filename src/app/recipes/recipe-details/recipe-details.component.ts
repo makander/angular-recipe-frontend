@@ -33,7 +33,7 @@ export class RecipeDetailsComponent implements OnInit {
   }
 
   saveToFavorites(recipeId, recipeName, imageUrl) {
-    this.FavoritesService.saveRecipes(recipeId, recipeName, imageUrl);
+    this.FavoritesService.saveRecipe(recipeId, recipeName, imageUrl);
   }
 
   goBack(): void {

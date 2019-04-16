@@ -59,19 +59,17 @@ export class RecipeListComponent implements OnInit {
       .map((v, i) => (v ? this.options[i].id : null))
       .filter(v => v !== null);
     let searchString = this.form.value.searchString;
-    console.log(searchString);
-
     this.RecipeService.getRecipes(searchString, options).subscribe(data => {
       this.recipes = data.matches;
-      console.log(this.recipes);
-      console.log(options);
-      console.log(searchString);
-      console.log(this.RecipeService.getRecipe);
     });
   };
 
   saveToFavorites(recipeId, recipeName, imageUrl) {
-    this.FavoritesService.saveRecipes(recipeId, recipeName, imageUrl);
+    this.FavoritesService.saveRecipe(
+      recipeId,
+      recipeName,
+      imageUrl
+    ).subscribe();
   }
 
   ngOnInit() {}

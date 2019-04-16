@@ -3,19 +3,19 @@ ul {
   padding: 0;
   list-style: none;
 }
+
 .desktop ul li {
- display: inline-block;
- width: 25%;
+  display: inline-block;
+  width: 25%;
 }
 
 #mobile-header {
   display: none;
 }
 
-.mobile
- {
+.mobile {
   display: none;
- }
+}
 
 .checkbox {
   height: 25px;
@@ -35,47 +35,59 @@ ul {
   size: 400px;
 }
 
+#background-image {
+  background: url(carrots-food-fresh-616404.jpg);
+  background-repeat: center center fixed;
+  background-size: cover;
+  height: 35rem;
+}
+
+/* #desktop-header {
+  padding: 2rem;
+  padding-top: 3rem;
+} */
+
 @media only screen and (max-width: 600px) {
   #search {
     width: 100%;
     margin: 1rem 0rem;
     border-radius: 20px;
     height: 3rem;
-    text-align: center; 
+    text-align: center;
   }
-  
+
   h5 {
     padding-top: 1rem;
-  } 
+  }
 
   .desktop {
     display: none;
-   }
-   
+  }
+
   .mobile {
     padding-top: 1rem;
     display: flex;
     justify-content: center;
-    }
+  }
 
-  .checkbox { 
+  .checkbox {
     height: 1rem;
     width: 1rem;
     text-align: center;
-    }
+  }
 
-    #desktop-header {
-      display: none;
-    }
+  #desktop-header {
+    display: none;
+  }
 
-    #mobile-header {   
-      padding-top: 1rem;
-      text-align: center;
-      display: block;
-    }
+  #mobile-header {
+    padding-top: 1rem;
+    text-align: center;
+    display: block;
+  }
 
-    h1 {
-      text-align: center;
-    }
-    
+  h1 {
+    text-align: center;
+  }
+
 }

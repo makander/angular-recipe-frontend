@@ -18,34 +18,25 @@ export class FavoritesService {
     })
   };
 
-  saveRecipes(recipeId, recipeName, imageUrl) {
+  saveRecipe(recipeId, recipeName, imageUrl) {
     const body = {
       yummly_recipe_id: recipeId,
       recipe_name: recipeName,
       image_url: imageUrl
     };
-    this.addRecipe(body).subscribe();
-  }
-
-  addRecipe(data) {
-    console.log(data);
-    console.log(typeof data + 'this is the type when adding');
-    return this.http.post(`${this.baseUrl}/recipes/`, data, this.httpOptions);
+    return this.http.post(`${this.baseUrl}/recipes/`, body, this.httpOptions);
   }
 
   getFavoriteRecipes(): Observable<any> {
-    return this.http.get(`${this.baseUrl}/recipes/`, this.httpOptions) ;
+    return this.http.get(`${this.baseUrl}/recipes/`, this.httpOptions);
   }
 
-  deleteRecipeData(recipeId) {
-     this.deleteRecipe(recipeId).subscribe();
+  deleteRecipe(recipeId): Observable<any> {
+    console.log(recipeId);
+    console.log(typeof recipeId + "this is the type");
+    return this.http.delete(
+      `${this.baseUrl}/recipes/${recipeId}`,
+      this.httpOptions
+    );
   }
-
-  deleteRecipe(data)  {
-    console.log(data);
-    console.log(typeof data + 
-      'this is the type');
-    return this.http.delete(`${this.baseUrl}/recipes/${data}`, this.httpOptions);
-  }
-
 }

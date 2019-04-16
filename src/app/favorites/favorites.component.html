@@ -1,26 +1,20 @@
-
-
-
-{{ savedRecipes | json}}
-
-<div class="card-deck">
-    <div *ngFor="let recipes of savedRecipes" class="card">
-        <img class="card-img-top" src="{{recipes.image_url}}" alt="Card image cap">
-        <div class="card-body">
-          <h5 class="card-title">{{recipes.recipe_name}}</h5>
-          <div>
-                <button
-                class="btn btn-info mr-2"
-                (click)="
-                deleteRecipe(
-                    recipes.id
-                  )
-                "
-              >
-                Delete
-              </button>   
+<div class="d-flex">
+  <div class="d-flex row flex-wrap m-2 justify-content-center">
+    <div *ngFor="let recipes of savedRecipes" class="card m-2 shadow" style="width: 18rem;">
+      <img class="card-img-top" src="{{recipes.image_url}}" alt="Card image cap">
+      <div class="card-body">
+        <h5 class="card-title">{{recipes.recipe_name}}</h5>
+        <div>
+          <button class="btn btn-info mr-2" (click)="
+                      deleteRecipe(
+                          recipes.id
+                        )
+                      ">
+            Delete
+          </button>
         </div>
-          <div></div>
-        </div>
+        <div></div>
       </div>
+    </div>
+  </div>
 </div>
