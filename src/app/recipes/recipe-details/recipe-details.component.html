@@ -7,22 +7,15 @@
       {{ ingredients }}
     </p>
     <p class="lead">
-      <a
-        class="btn btn-primary btn-lg mr-2"
-        href="{{ recipeDetails.source.sourceRecipeUrl }}"
-        role="button"
-        >Instructions</a
-      >
-      <button
-        class="btn btn-secondary btn-lg mr-2"
-        (click)="
+      <a class="btn btn-primary btn-lg mr-2" href="{{ recipeDetails.source.sourceRecipeUrl }}"
+        role="button">Instructions</a>
+      <button class="btn btn-secondary btn-lg mr-2" (click)="
           saveToFavorites(
             recipeDetails.id,
             recipeDetails.name,
             image.imageUrlsBySize[90]
           )
-        "
-      >
+        ">
         Save recipe
       </button>
       <button class="btn btn-primary btn-info btn-lg" (click)="goBack()">

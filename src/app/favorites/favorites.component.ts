@@ -11,25 +11,24 @@ export class FavoritesComponent implements OnInit {
   constructor(private FavoritesService: FavoritesService) {}
 
   savedRecipes: any[] = [];
-  subscription$: Subscription;
+  recipies$: Subscription;
+  delete$: Subscription;
 
   deleteRecipe(recipeId) {
     this.FavoritesService.deleteRecipe(recipeId).subscribe(data => {
-      console.log(data);
       this.savedRecipes = data;
     });
   }
 
   ngOnInit() {
-    this.subscription$ = this.FavoritesService.getFavoriteRecipes().subscribe(
+    this.recipies$ = this.FavoritesService.getFavoriteRecipes().subscribe(
       data => {
-        console.log(data);
         this.savedRecipes = data;
       }
     );
   }
 
   ngOnDestroy() {
-    this.subscription$.unsubscribe();
+    this.recipies$.unsubscribe();
   }
 }
