@@ -8,6 +8,7 @@ import {
   ValidatorFn
 } from "@angular/forms";
 import { FavoritesService } from "../../favorites.service";
+import { AuthServiceService } from "../../auth-service.service";
 
 @Component({
   selector: "app-recipe-list",
@@ -17,6 +18,7 @@ import { FavoritesService } from "../../favorites.service";
 export class RecipeListComponent implements OnInit {
   form: FormGroup;
   searchString;
+  public userLoggedIn: boolean;
 
   recipes = [];
   options = [
@@ -45,7 +47,8 @@ export class RecipeListComponent implements OnInit {
   constructor(
     private RecipeService: RecipeService,
     private FavoritesService: FavoritesService,
-    private formBuilder: FormBuilder
+    private formBuilder: FormBuilder,
+    private Auth: AuthServiceService
   ) {
     const controls = this.options.map(c => new FormControl(false));
     this.form = this.formBuilder.group({
@@ -72,5 +75,7 @@ export class RecipeListComponent implements OnInit {
     ).subscribe();
   }
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.Auth.authStatus.subscribe(value => (this.userLoggedIn = value));
+  }
 }

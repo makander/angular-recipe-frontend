@@ -22,7 +22,6 @@ export class HeaderComponent implements OnInit {
   }
 
   logout() {
-    console.log("LOGGA UT MIG DÅ!!");
     this.Auth.changeAuthStaus(false);
     this.Token.removeToken();
     this.router.navigateByUrl("");

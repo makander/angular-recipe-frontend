@@ -4,6 +4,7 @@ import { ActivatedRoute } from "@angular/router";
 import { Location } from "@angular/common";
 import { RecipeDetails } from "../recipeDetails";
 import { FavoritesService } from "../../favorites.service";
+import { AuthServiceService } from "src/app/auth-service.service";
 
 @Component({
   selector: "app-recipe-details",
@@ -12,16 +13,18 @@ import { FavoritesService } from "../../favorites.service";
 })
 export class RecipeDetailsComponent implements OnInit {
   recipeDetails: RecipeDetails;
-
+  public userLoggedIn: boolean;
   constructor(
     private route: ActivatedRoute,
     private RecipeService: RecipeService,
     private location: Location,
-    private FavoritesService: FavoritesService
+    private FavoritesService: FavoritesService,
+    private Auth: AuthServiceService
   ) {}
 
   ngOnInit() {
     this.getRecipe();
+    this.Auth.authStatus.subscribe(value => (this.userLoggedIn = value));
   }
   getRecipe(): void {
     const id = this.route.snapshot.paramMap.get("id");
@@ -31,7 +34,11 @@ export class RecipeDetailsComponent implements OnInit {
   }
 
   saveToFavorites(recipeId, recipeName, imageUrl) {
-    this.FavoritesService.saveRecipe(recipeId, recipeName, imageUrl);
+    this.FavoritesService.saveRecipe(
+      recipeId,
+      recipeName,
+      imageUrl
+    ).subscribe();
   }
 
   goBack(): void {

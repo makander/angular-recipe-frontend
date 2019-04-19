@@ -41,7 +41,8 @@
         <div class="card-block">
           <h5 class="card-title text-center">{{ recipe.recipeName }}</h5>
           <p class="card-text text-center pb-4">
-            <button class="btn btn-info mr-2" (click)="
+
+            <button *ngIf="userLoggedIn" class="btn btn-info mr-2" (click)="
                     saveToFavorites(
                       recipe.id,
                       recipe.sourceDisplayName,

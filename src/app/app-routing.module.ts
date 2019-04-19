@@ -5,13 +5,16 @@ import { RecipeDetailsComponent } from "./recipes/recipe-details/recipe-details.
 import { FavoritesComponent } from "./favorites/favorites.component";
 import { LoginComponent } from "./login/login.component";
 import { RegisterComponent } from "./register/register.component";
+import { AfterLoginService } from "./after-login.service";
+import { BeforeLoginService } from "./before-login.service";
 
 const routes: Routes = [
   { path: "", component: RecipeListComponent },
   { path: "recipe/:id", component: RecipeDetailsComponent },
   {
     path: "favorites",
-    component: FavoritesComponent
+    component: FavoritesComponent,
+    canActivate: [AfterLoginService]
   },
   {
     path: "login",
@@ -19,7 +22,8 @@ const routes: Routes = [
   },
   {
     path: "register",
-    component: RegisterComponent
+    component: RegisterComponent,
+    canActivate: [BeforeLoginService]
   },
   { path: "logout", redirectTo: "", component: RecipeListComponent }
 ];

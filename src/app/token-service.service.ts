@@ -38,12 +38,15 @@ export class TokenServiceService {
   }
 
   payloadToken(token) {
-    const payload = token.split(".")[1];
-    return this.decodePayload(payload);
+    //const payload = token.split(".")[1];
+    return this.decodePayload(token);
   }
 
-  decodePayload(payloadToken) {
-    return JSON.parse(atob(payloadToken));
+  decodePayload(token) {
+    //return JSON.parse(atob(payloadToken));
+    var base64Url = token.split(".")[1];
+    var base64 = base64Url.replace(/-/g, "+").replace(/_/g, "/");
+    return JSON.parse(atob(base64));
   }
 
   userLoggedIn() {

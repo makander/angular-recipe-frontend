@@ -90,4 +90,10 @@ ul {
     text-align: center;
   }
 
+  #background-image {
+    background: url(carrots-food-fresh-616404.jpg);
+    background-repeat: center center fixed;
+    background-size: cover;
+    height: 50rem;
+  }
 }
