@@ -11,12 +11,13 @@ import { TokenServiceService } from "./token-service.service";
   providedIn: "root"
 })
 export class AfterLoginService implements CanActivate {
+  constructor(private Token: TokenServiceService) {}
+
   canActivate(
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot
   ): boolean | Observable<boolean> | Promise<boolean> {
+    debugger;
     return this.Token.userLoggedIn();
   }
-
-  constructor(private Token: TokenServiceService) {}
 }

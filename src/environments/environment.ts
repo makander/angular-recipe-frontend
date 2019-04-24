@@ -3,7 +3,10 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  //baseurl: "http://recipe.test/api/auth"
+  baseurl:
+    "https://cors-anywhere.herokuapp.com/http://recipe.nilsmakander.chas.academy/api/auth"
 };
 
 /*

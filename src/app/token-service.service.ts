@@ -1,12 +1,13 @@
 import { Injectable } from "@angular/core";
+import { environment } from "../environments/environment";
 
 @Injectable({
   providedIn: "root"
 })
 export class TokenServiceService {
   private iss = {
-    login: "http://recipe.test/api/auth/login",
-    register: "http://recipe.test/api/auth/register"
+    login: `${environment.baseurl}/login`,
+    register: `${environment.baseurl}/register`
   };
   constructor() {}
 

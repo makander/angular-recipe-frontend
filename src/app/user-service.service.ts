@@ -1,19 +1,19 @@
 import { Injectable } from "@angular/core";
 import { HttpClient } from "@angular/common/http";
 import { Observable, of } from "rxjs";
+import { environment } from "../environments/environment";
 
 @Injectable({
   providedIn: "root"
 })
 export class UserServiceService {
-  private backendUrl = "http://recipe.test/api/auth";
   constructor(private http: HttpClient) {}
 
   registerUser(data) {
-    return this.http.post(`${this.backendUrl}/register`, data);
+    return this.http.post(`${environment.baseurl}/register`, data);
   }
 
   loginUser(data) {
-    return this.http.post(`${this.backendUrl}/login`, data);
+    return this.http.post(`${environment.baseurl}/login`, data);
   }
 }
