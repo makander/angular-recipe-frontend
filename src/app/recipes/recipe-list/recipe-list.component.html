@@ -1,5 +1,5 @@
 <div class="mx-auto">
-  <div id="background-image" class="img-fluid">
+  <div id="background-image" class="img-fluid pb-5">
     <div>
       <h1 class="text-center display-1 text-white pt-2 pb-4 d-none d-lg-block" id="desktop-header">Universal Recipe
         Locator</h1>
@@ -9,16 +9,16 @@
       <form [formGroup]="form" (ngSubmit)="handleRecipesSearch()">
         <div class="d-flex justify-content-center p-2">
           <input id="search" formControlName="searchString" placeholder="search" class="form-control-lg m2" />
-          <button type="submit" class="btn btn-primary p-2">Submit</button>
+          <button type="submit" class="btn btn-primary ml-2 p-2">Submit</button>
         </div>
 
-        <h5 class="text-center ">Select Allergies or type of course</h5>
+        <h5 class="text-center">Select Allergies or type of course</h5>
 
         <div class="container">
           <div formArrayName="options" class="d-flex flex-wrap">
-            <div class="m-2" *ngFor="let option of form.controls.options.controls; let i = index">
+            <div class="m-2 text-dark text-wrap" *ngFor="let option of form.controls.options.controls; let i = index">
               <input class="checkbox" type="checkbox" [formControlName]="i"/>
-              {{ options[i].name }}
+              {{ options[i].name }} 
             </div>
           </div>
         </div>
