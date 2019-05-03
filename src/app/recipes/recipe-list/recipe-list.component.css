@@ -1,4 +1,11 @@
-ul {
+#background-image {
+  background: url(carrots-food-fresh-616404.jpg);
+  background-repeat: center center fixed;
+  background-size: cover;
+  height: 35rem;
+}
+
+/* ul {
   margin: 0;
   padding: 0;
   list-style: none;
@@ -35,17 +42,9 @@ ul {
   size: 400px;
 }
 
-#background-image {
-  background: url(carrots-food-fresh-616404.jpg);
-  background-repeat: center center fixed;
-  background-size: cover;
-  height: 35rem;
-}
 
-/* #desktop-header {
-  padding: 2rem;
-  padding-top: 3rem;
-} */
+
+
 
 @media only screen and (max-width: 600px) {
   #search {
@@ -97,3 +96,4 @@ ul {
     height: 50rem;
   }
 }
+ */

@@ -17,7 +17,6 @@ export class AfterLoginService implements CanActivate {
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot
   ): boolean | Observable<boolean> | Promise<boolean> {
-    debugger;
     return this.Token.userLoggedIn();
   }
 }

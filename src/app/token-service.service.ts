@@ -30,21 +30,16 @@ export class TokenServiceService {
   isTokenValid() {
     const token = this.getToken();
     if (token) {
-      const payload = this.payloadToken(token);
-      if (payload) {
-        return Object.values(this.iss).indexOf(payload.iss) > -1 ? true : false;
-      }
-    }
-    return false;
+  return true;
+    } else {
+    return false; }
   }
 
   payloadToken(token) {
-    //const payload = token.split(".")[1];
     return this.decodePayload(token);
   }
 
   decodePayload(token) {
-    //return JSON.parse(atob(payloadToken));
     var base64Url = token.split(".")[1];
     var base64 = base64Url.replace(/-/g, "+").replace(/_/g, "/");
     return JSON.parse(atob(base64));

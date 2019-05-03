@@ -1,26 +1,34 @@
-<div class="jumbotron text-center bg-light">
+<div *ngIf="recipeDetails" class="jumbotron text-center bg-light">
   <h1 class="display-6 mb-4">{{ recipeDetails.name }}</h1>
   <div *ngFor="let image of recipeDetails.images">
     <img src="{{ image.imageUrlsBySize[360] }}" alt="" />
-    <hr class="my-4" />
-    <p *ngFor="let ingredients of recipeDetails.ingredientLines">
-      {{ ingredients }}
-    </p>
-    <p class="lead">
-      <a class="btn btn-primary btn-lg mr-2" href="{{ recipeDetails.source.sourceRecipeUrl }}"
-        role="button">Instructions</a>
-      <button *ngIf="userLoggedIn" class="btn btn-info mr-2" (click)="
-        saveToFavorites(
-          recipe.id,
-          recipe.sourceDisplayName,
-          recipe.smallImageUrls[0]
-        )
-      ">
-        Save recipe
-      </button>
-      <button class="btn btn-primary btn-info btn-lg" (click)="goBack()">
-        Back
-      </button>
-    </p>
   </div>
+  <hr class="my-4" />
+  <p *ngFor="let ingredients of recipeDetails.ingredientLines">
+    {{ ingredients }}
+  </p>
+  <p class="lead">
+    <a
+      class="btn btn-primary mr-2"
+      href="{{ recipeDetails.source.sourceRecipeUrl }}"
+      role="button"
+      >Instructions</a
+    >
+    <button
+      *ngIf="userLoggedIn"
+      class="btn btn-info mr-2"
+      (click)="
+        saveToFavorites(
+          recipeDetails.id,
+          recipeDetails.name,
+          recipeDetails.images[0].imageUrlsBySize[360]
+        )
+      "
+    >
+      Save
+    </button>
+    <button class="btn btn-primary btn-info" (click)="goBack()">
+      Back
+    </button>
+  </p>
 </div>
