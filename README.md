@@ -1,3 +1,5 @@
+Live version here: http://nilsmakander.chas.academy/06-recipe-app-frontend-makander/
+
 # RecipeAppFrontendMakander
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.3.1.
